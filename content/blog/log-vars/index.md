@@ -1,6 +1,6 @@
 ---
 title: Turn off PHP variable logging in Craft 3
-description: Yii2's log target logs extra ungrokkable data into your log files. Turn that shit off.
+description: Yii2 dumps PHP variables into your log files. Turn that shit off.
 tags: ["craft-cms", "yii2", "tricks"]
 date: "2019-05-22T15:18:00.000+0200"
 ---
