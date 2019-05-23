@@ -1,7 +1,35 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, StaticQuery, graphql } from "gatsby"
+import Image from "gatsby-image"
 
 import { rhythm, scale } from "../utils/typography"
+
+const Avatar = ({ width = 30}) =>
+  <StaticQuery
+    query={bioQuery}
+    render={data => {
+      const { author } = data.site.siteMetadata
+      return (
+        <div>
+          <Image
+            fixed={data.avatar.childImageSharp.fixed}
+            alt={author}
+            style={{
+              marginRight: rhythm(1 / 2),
+              marginBottom: 0,
+              borderRadius: `100%`,
+              width,
+              height: width,
+              minWidth: width,
+            }}
+            imgStyle={{
+              borderRadius: `50%`,
+            }}
+          />
+        </div>
+      )
+    }}
+  />
 
 class Layout extends React.Component {
   render() {
@@ -13,11 +41,14 @@ class Layout extends React.Component {
       header = (
         <h1
           style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
+            ...scale(1),
+            display: 'flex',
+            fontFamily: `Montserrat, sans-serif`,
+            marginBottom: rhythm(1),
             marginTop: 0,
           }}
         >
+          <Avatar width={50} />
           <Link
             style={{
               boxShadow: `none`,
@@ -34,10 +65,13 @@ class Layout extends React.Component {
       header = (
         <h3
           style={{
+            display: 'flex',
             fontFamily: `Montserrat, sans-serif`,
+            lineHeight: '1.25em',
             marginTop: 0,
           }}
         >
+          <Avatar />
           <Link
             style={{
               boxShadow: `none`,
@@ -56,20 +90,48 @@ class Layout extends React.Component {
         style={{
           marginLeft: `auto`,
           marginRight: `auto`,
-          maxWidth: rhythm(24),
+          maxWidth: rhythm(40),
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
       >
         <header>{header}</header>
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <StaticQuery
+          query={bioQuery}
+          render={data => {
+            const { social } = data.site.siteMetadata
+            return (
+              <footer>
+                © {new Date().getFullYear()} <a href={`https://twitter.com/${social.twitter}`}>{social.twitter}</a>. Built with
+                {` `}
+                <a href="https://www.gatsbyjs.org">Gatsby</a>
+              </footer>
+            )
+          }}
+        />
       </div>
     )
   }
 }
+
+const bioQuery = graphql`
+  query AvatarQuery {
+    avatar: file(absolutePath: { regex: "/avatar.jpg/" }) {
+      childImageSharp {
+        fixed(width: 50, height: 50) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        author
+        social {
+          twitter
+        }
+      }
+    }
+  }
+`
 
 export default Layout
