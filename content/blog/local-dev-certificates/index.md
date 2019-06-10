@@ -85,9 +85,9 @@ openssl ca -config openssl.cnf -in localhost.csr -out localhost.cer -create_seri
 
 # Using the certificates
 
-## Install your CA on FireFox
+## Install your CA on Firefox
 
-In FireFox, navigate to Preferences -> Privacy & Security -> Certificates. Click "View Certificates" and under "Authorities" click Import and import your `ca.crt` file.
+In Firefox, navigate to Preferences -> Privacy & Security -> Certificates. Click "View Certificates" and under "Authorities" click Import and import your `ca.crt` file.
 
 ## Nginx
 
