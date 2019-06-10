@@ -6,8 +6,20 @@ MoragaTheme.overrideThemeStyles = () => {
     "a.gatsby-resp-image-link": {
       boxShadow: `none`,
     },
+    "p": {
+      fontSize: '1.25rem',
+    },
+    "h1": {
+      fontWeight: "300",
+    },
+    "h3 a": {
+      fontWeight: "300",
+    },
   }
 }
+
+MoragaTheme.headerFontFamily =  ["Montserrat", "sans-serif"]
+MoragaTheme.bodyFontFamily =  ["Crimson Text", "Georgia, Times", "Times New Roman", "serif"]
 
 delete MoragaTheme.googleFonts
 

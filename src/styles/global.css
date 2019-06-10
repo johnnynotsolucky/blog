@@ -7,6 +7,10 @@ a:hover {
   color: inherit;
 }
 
+.gist-data {
+  max-height: 30em;
+}
+
 .gatsby-highlight pre[class*="language-"].line-numbers {
 
 }

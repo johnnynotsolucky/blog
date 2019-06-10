@@ -1,6 +1,6 @@
 // custom typefaces
 import "typeface-montserrat"
-import "typeface-merriweather"
+import "typeface-crimson-text"
 
 // load prism theme
 import './src/styles/prism-theme.css'
