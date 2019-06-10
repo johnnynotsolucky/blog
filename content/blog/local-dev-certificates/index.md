@@ -1,5 +1,5 @@
 ---
-title: Naive guide to generating a development certificates
+title: Naive guide to generating development certificates
 description: Generate your own certificates for development (the hard way)
 tags: ["tls", "ops", "development", "tricks"]
 date: "2019-06-10T22:27:00.000+0200"
