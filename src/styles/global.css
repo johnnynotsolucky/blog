@@ -11,6 +11,10 @@ a:hover {
   max-height: 30em;
 }
 
+.gatsby-highlight {
+  margin-bottom: 1.56rem;
+}
+
 .gatsby-highlight pre[class*="language-"].line-numbers {
 
 }
