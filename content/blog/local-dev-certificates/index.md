@@ -1,8 +1,11 @@
 ---
 title: Naive guide to generating development certificates
 description: Generate your own certificates for development (the hard way)
-tags: ["tls", "ops", "development", "tricks"]
-date: "2019-06-10T22:27:00.000+0200"
+tags: ["tech", "ops", "development"]
+date: "2019-06-10T22:27:00.000"
+changelog:
+  - date: "2019-06-10T22:27:00.000"
+    message: "Published"
 ---
 
 The easy way: [mkcert](https://github.com/FiloSottile/mkcert).

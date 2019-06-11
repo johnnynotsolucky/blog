@@ -3,7 +3,50 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import { rhythm } from "../utils/typography"
+
+const Changelog = ({ changelog }) => {
+
+  if (changelog.length > 0) {
+    return (
+      <ul
+        style={{
+          display: `flex`,
+          flexDirection: 'column',
+          flexWrap: `wrap`,
+          justifyContent: `space-between`,
+          listStyle: `none`,
+          padding: 0,
+          marginLeft: 0,
+          fontFamily: ['Montserrat', 'sans-serif'],
+          fontSize: '0.8rem',
+        }}
+      >
+        {changelog.map(change => {
+          return (<li style={{ marginBottom: 'calc(1.56rem / 4)' }}>
+            <span
+              style = {{
+                padding: '.1em .3em',
+                borderRadius: '.3em',
+                color: '#0077aa',
+                background: '#f9f2f4',
+              }}
+            >
+              {change.date}
+            </span>
+            <span
+
+            >
+            {' '} - {change.message}
+            </span>
+          </li>)
+        })}
+      </ul>
+    )
+  }
+
+  return null
+}
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -17,17 +60,10 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <h1>{post.frontmatter.title}</h1>
-        <p
-          style={{
-            ...scale(-1 / 5),
-            display: `block`,
-            marginBottom: rhythm(1),
-            marginTop: rhythm(-1),
-          }}
-        >
-          {post.frontmatter.date}
-        </p>
+        <h1
+          style={{ marginBottom: '.1em' }}
+        >{post.frontmatter.title}</h1>
+        <Changelog changelog={post.frontmatter.changelog} />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
@@ -82,6 +118,11 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
+        changelog {
+          date(formatString: "DD/MM/YYYY HH:mm")
+          message
+        }
         tags
       }
     }
