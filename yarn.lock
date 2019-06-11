@@ -11269,10 +11269,10 @@ typeface-crimson-text@^0.0.72:
   resolved "https://registry.yarnpkg.com/typeface-crimson-text/-/typeface-crimson-text-0.0.72.tgz#af492f355f1474ec185bebebf4b2aaaae6eec24d"
   integrity sha512-CLDNCOJ05k1BIbgQ1eAPPaK4eVHls8Y+n5NTIwvlFmhCSLzCXWII4vQ2oV6Iyi3BOVogj/LsWq25IdQINrh5+Q==
 
-typeface-merriweather@0.0.72:
+typeface-fira-mono@^0.0.72:
   version "0.0.72"
-  resolved "https://registry.yarnpkg.com/typeface-merriweather/-/typeface-merriweather-0.0.72.tgz#2b990f5293252052d51d170c82d3892319ff0555"
-  integrity sha512-gO0+fcZ1fTyKUsYY1ltYOOTI6FmBGeEdyIfeQg9NL8aInndk0feiJJVJsKHm/DiyYrnQEezraAQhz/KQoqMGtw==
+  resolved "https://registry.yarnpkg.com/typeface-fira-mono/-/typeface-fira-mono-0.0.72.tgz#b396d2a08814bb3a32d94ef71c74d37883c3475b"
+  integrity sha512-bouzjtniGMrakhazipUl6mskswe7UvH3qynU5Wsl0O7NMuL178VtZ0pOqUGsjBJ42l64GZo9nUMI1eSK4kvJbQ==
 
 typeface-montserrat@^0.0.54:
   version "0.0.54"

@@ -5,48 +5,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
-const Changelog = ({ changelog }) => {
+import Changelog from '../components/Changelog'
 
-  if (changelog.length > 0) {
-    return (
-      <ul
-        style={{
-          display: `flex`,
-          flexDirection: 'column',
-          flexWrap: `wrap`,
-          justifyContent: `space-between`,
-          listStyle: `none`,
-          padding: 0,
-          marginLeft: 0,
-          fontFamily: ['Montserrat', 'sans-serif'],
-          fontSize: '0.8rem',
-        }}
-      >
-        {changelog.map(change => {
-          return (<li style={{ marginBottom: 'calc(1.56rem / 4)' }}>
-            <span
-              style = {{
-                padding: '.1em .3em',
-                borderRadius: '.3em',
-                color: '#0077aa',
-                background: '#f9f2f4',
-              }}
-            >
-              {change.date}
-            </span>
-            <span
-
-            >
-            {' '} - {change.message}
-            </span>
-          </li>)
-        })}
-      </ul>
-    )
-  }
-
-  return null
-}
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -61,7 +21,7 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description || post.excerpt}
         />
         <h1
-          style={{ marginBottom: '.1em' }}
+          style={{ marginBottom: '.25em' }}
         >{post.frontmatter.title}</h1>
         <Changelog changelog={post.frontmatter.changelog} />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -116,7 +76,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date
         description
         tags
         changelog {

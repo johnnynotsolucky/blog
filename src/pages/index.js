@@ -5,6 +5,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
+import Changelog from '../components/Changelog'
+
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
@@ -30,11 +32,16 @@ class BlogIndex extends React.Component {
                   {title}
                 </Link>
               </h3>
-              <small>{node.frontmatter.date}</small>
               <p
+                style={{marginBottom: '0'}}
                 dangerouslySetInnerHTML={{
                   __html: node.frontmatter.description || node.excerpt,
                 }}
+              />
+              <Changelog
+                changelog={node.frontmatter.changelog}
+                limit={true}
+                reverse={true}
               />
             </div>
           )
@@ -61,9 +68,13 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date
             title
             description
+            changelog {
+              date(formatString: "DD/MM/YYYY HH:mm")
+              message
+            }
             tags
           }
         }
