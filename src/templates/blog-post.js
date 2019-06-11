@@ -80,7 +80,7 @@ export const pageQuery = graphql`
         description
         tags
         changelog {
-          date(formatString: "DD/MM/YYYY HH:mm")
+          date(formatString: "DD/MM/YYYY")
           message
         }
         tags

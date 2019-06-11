@@ -2,9 +2,9 @@
 title: Naive guide to generating development certificates
 description: Generate your own certificates for development (the hard way)
 tags: ["tech", "ops", "development"]
-date: "2019-06-10T22:27:00.000"
+date: "2019-06-10T22:27:00.000+0200"
 changelog:
-  - date: "2019-06-10T22:27:00.000"
+  - date: "2019-06-10T22:27:00.000+0200"
     message: "Published"
 ---
 

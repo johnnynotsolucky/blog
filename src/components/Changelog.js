@@ -8,12 +8,15 @@ const Item = ({ change }) => {
         borderRadius: '.3em',
         color: '#0077aa',
         background: '#f9f2f4',
+        fontSize: '0.8rem',
       }}
     >
       {change.date}
     </span>
     <span
-
+      style = {{
+        fontSize: '0.8rem',
+      }}
     >
     {' '} - {change.message}
     </span>
