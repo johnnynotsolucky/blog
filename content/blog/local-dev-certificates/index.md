@@ -1,6 +1,6 @@
 ---
 title: Naive guide to generating development certificates
-description: Generate your own certificates for development (the hard way)
+description: Generate your own certificates for development (the hard way).
 tags: ["tech", "ops", "development"]
 date: "2019-06-10T22:27:00.000+0200"
 published: true

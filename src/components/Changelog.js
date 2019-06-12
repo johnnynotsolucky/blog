@@ -43,7 +43,7 @@ const Changelog = ({ changelog, limit = false, reverse = false }) => {
       >
         {limit
           ? (<Item change={changes[0]} />)
-          : changes.map(change => (<Item change={change}/>))
+          : changes.map(change => (<Item key={changes[0]} change={change}/>))
         }
       </ul>
     )
