@@ -3,6 +3,7 @@ title: Naive guide to generating development certificates
 description: Generate your own certificates for development (the hard way)
 tags: ["tech", "ops", "development"]
 date: "2019-06-10T22:27:00.000+0200"
+published: true
 changelog:
   - date: "2019-06-10T22:27:00.000+0200"
     message: "Published"
@@ -12,7 +13,7 @@ The easy way: [mkcert](https://github.com/FiloSottile/mkcert).
 
 Recently I was working on an Ansible role to provision Nginx with TLS already configured and enabled, however to test it effectively, I needed to have valid certificates installed in the testing container. This was my brief foray into OpenSSL.
 
-# Setting up
+## Setting up
 
 Before we can set up a CA and start signing certificates, there are a few requirements. We need a place to store the certificates, we need some configuration, and we need a database for CA lookups. Fortunately, that is all readily available.
 
@@ -33,7 +34,7 @@ When generating a signed certificate with `openssl ca`, OpenSSL will try to upda
 touch index.txt
 ```
 
-# Create a Certificate Authority
+## Create a Certificate Authority
 
 First generate a key:
 
@@ -66,7 +67,7 @@ The fields passed to the subject argument correspond with:
 [CN] Common Name (e.g., server FQDN) 	The fully-qualified domain name (FQDN) (e.g., www.example.com).
 ```
 
-# Generate your certificate
+## Generate your certificate
 
 Create your site key:
 
@@ -86,13 +87,13 @@ And finally, sign the key and generate your certificate:
 openssl ca -config openssl.cnf -in localhost.csr -out localhost.cer -create_serial -batch
 ```
 
-# Using the certificates
+## Using the certificates
 
-## Install your CA on Firefox
+### Install your CA on Firefox
 
 In Firefox, navigate to Preferences -> Privacy & Security -> Certificates. Click "View Certificates" and under "Authorities" click Import and import your `ca.crt` file.
 
-## Nginx
+### Nginx
 
 In your vhosts file for your site:
 
@@ -101,7 +102,7 @@ ssl_certificate_path: "/etc/path/to/your/localhost.cer"
 ssl_certificate_key_path: "/etc/path/to/your/localhost.key"
 ```
 
-## curl
+### curl
 
 In my case, I was using [Molecule](https://molecule.readthedocs.io/en/stable/) which runs tests against a Docker container. I needed to make a call to my test site over TLS and verify the response:
 

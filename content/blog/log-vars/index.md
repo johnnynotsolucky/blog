@@ -3,6 +3,7 @@ title: Turn off PHP variable logging in Craft 3
 description: Yii2 dumps PHP variables into your log files. Turn it off.
 tags: ["tech", "craft-cms", "yii2"]
 date: "2019-05-22T15:18:00.000+0200"
+published: true
 changelog:
   - date: "2019-05-22T15:18:00.000+0200"
     message: "Published"

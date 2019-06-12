@@ -70,7 +70,9 @@ export const pageQuery = graphql`
         author
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    markdownRemark(
+      fields: { slug: { eq: $slug } }
+    ) {
       id
       excerpt(pruneLength: 160)
       html
@@ -83,6 +85,7 @@ export const pageQuery = graphql`
           date(formatString: "DD/MM/YYYY")
           message
         }
+        published
         tags
       }
     }

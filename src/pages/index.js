@@ -12,6 +12,7 @@ class BlogIndex extends React.Component {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
+    console.log(posts)
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -19,7 +20,9 @@ class BlogIndex extends React.Component {
           title="All posts"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        {posts.map(({ node }) => {
+        {posts
+          .filter(({ node }) => process.env.NODE_ENV === 'development' || node.frontmatter.published)
+          .map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
             <div key={node.fields.slug}>
@@ -60,7 +63,13 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: {
+        fields: [frontmatter___date],
+        order: DESC,
+      }
+      limit: 1000
+    ) {
       edges {
         node {
           excerpt
@@ -76,6 +85,7 @@ export const pageQuery = graphql`
               message
             }
             tags
+            published
           }
         }
       }

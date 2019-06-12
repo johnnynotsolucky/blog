@@ -3,6 +3,7 @@ title: Grokkable logs w/ Craft 3
 description: Log messages in a format that is easy to work with
 tags: ["tech", "development", "craft-cms", "yii2"]
 date: "2019-06-11T18:30:00.000+0200"
+published: true
 changelog:
   - date: "2019-06-11T18:30:00.000+0200"
     message: "Published"
