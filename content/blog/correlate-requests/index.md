@@ -1,6 +1,6 @@
 ---
 title: Correlating Craft 3 requests
-description:
+description: Add a request ID to your logs for easy log grouping.
 tags: ["tech", "development", "craft-cms", "yii2"]
 date: "2019-06-13T23:25:00.000+0200"
 published: true
