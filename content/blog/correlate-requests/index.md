@@ -1,5 +1,5 @@
 ---
-title: Correlating Craft 3 requests
+title: Correlating Craft 3 requests, pt. 1
 description: Add a request ID to your logs for easy log grouping.
 tags: ["tech", "development", "craft-cms", "yii2"]
 date: "2019-06-13T23:25:00.000+0200"
@@ -8,6 +8,8 @@ changelog:
   - date: "2019-06-13T23:25:00.000+0200"
     message: "Published"
 ---
+
+- [Correlating Craft 3 requests, pt. 2](/correlate-requests-pt-2/)
 
 Sometimes when debugging issues, its useful to group log messages together by a request identifier so that we can follow a requests flow through our system. This is especially useful when tracing calls on a site with hundreds or thousands of requests per minute.
 

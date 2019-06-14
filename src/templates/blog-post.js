@@ -14,6 +14,8 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
+    const trimmedSlug = this.props.pageContext.slug.replace(/(^\/)|(\/$)/g, '')
+
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
@@ -25,6 +27,21 @@ class BlogPostTemplate extends React.Component {
         >{post.frontmatter.title}</h1>
         <Changelog changelog={post.frontmatter.changelog} />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div
+          style={{
+            marginBottom: '1.5em',
+						fontSize: '1.05rem',
+          }}
+        >
+          <a
+            className='suggestion'
+            href={`https://github.com/johnnynotsolucky/blog/issues/new?title=[${trimmedSlug}]`}
+          >
+            <span style={{ marginLeft: '.25em' }}>
+              Make a suggestion
+            </span>
+          </a>
+        </div>
         <hr
           style={{
             marginBottom: rhythm(1),
