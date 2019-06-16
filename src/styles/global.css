@@ -56,7 +56,7 @@ li {
   display: inline-block;
   position: absolute;
   transform: translateY(-100%);
-  padding: 0.2em 1em;
+  padding: 0 1em;
   font-family: 'Fira Mono', 'Ubuntu Mono', monospace;
   font-size: 0.6rem;
   background-color: #dd4a68;
