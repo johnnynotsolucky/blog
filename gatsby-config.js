@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `blog.tyrone.dev`,
     author: `Tyrone Tudehope`,
-    description: `XYZ`,
+    description: `Blog`,
     siteUrl: `https://blog.tyrone.dev/`,
     social: {
       twitter: `tyronetudehope`,
@@ -56,7 +56,65 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-feed`,
+    {
+      resolve: 'gatsby-plugin-feed-generator',
+      options: {
+        generator: `GatsbyJS`,
+        rss: true, // Set to false to stop rss generation
+        json: true, // Set to false to stop json feed generation
+        siteQuery: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                author
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            name: 'feed', // This determines the name of your feed file => feed.json & feed.xml
+            query: `
+            {
+              allMarkdownRemark(
+                sort: {order: DESC, fields: [frontmatter___date]},
+                filter: {
+                  frontmatter: {published: {eq: true}}
+                }
+                limit: 100,
+                ) {
+                edges {
+                  node {
+                    html
+                    fields {
+                      slug
+                    }
+                    frontmatter {
+                      date
+                      title
+                    }
+                  }
+                }
+              }
+            }
+            `,
+            normalize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                return {
+                  title: edge.node.frontmatter.title,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  html: edge.node.html,
+                }
+              })
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
