@@ -1,23 +1,22 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
+import Layout from "../../components/layout"
+import SEO from "../../components/seo"
+import { rhythm } from "../../utils/typography"
 
-import Changelog from '../components/Changelog'
+import Changelog from '../../components/Changelog'
 
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
+    const siteTitle = `${data.site.siteMetadata.title} - drafts`
     const posts = data.allMarkdownRemark.edges
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
-          title="All posts"
-          keywords={[`blog`, `gatsby`, `javascript`, `react`]}
+          title="Drafts"
         />
         {posts
           .filter(({ node }) => process.env.NODE_ENV === 'development' || node.frontmatter.published)
@@ -68,7 +67,7 @@ export const pageQuery = graphql`
         order: DESC,
       }
       filter: {
-        frontmatter: {published: {eq: true}}
+        frontmatter: {published: {eq: false}}
       }
       limit: 1000
     ) {
@@ -94,3 +93,4 @@ export const pageQuery = graphql`
     }
   }
 `
+
