@@ -1,5 +1,5 @@
 ---
-title: Grokkable logs w/ Craft 3
+title: Grokkable logs w/ Craft 3, pt. 1
 description: Log messages in a format that is easy to work with.
 tags: ["tech", "development", "craft-cms", "yii2"]
 date: "2019-06-11T18:30:00.000+0200"
@@ -14,10 +14,8 @@ changelog:
 By default, Yii2 logs are multiline and Craft doesn't add any extra configuration to change the log output beyond log file location. While this might be useful on a local dev environment when you have relatively few logs, it can quickly become tiresome to search. For example, let's take a look at a small sample of logs from a fresh Craft 3 installation:
 
 ```bash
-less +F /path/to/storage/logs/web.log
-```
+$ tail /path/to/storage/logs/web.log
 
-```markup
 2019-06-11 05:09:37 [-][-][-][info][yii\db\Command::query] SHOW FULL COLUMNS FROM `craft_resourcepaths`
 2019-06-11 05:09:37 [-][-][-][info][yii\db\Command::query] SELECT
     kcu.constraint_name,
@@ -99,7 +97,7 @@ sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
 And search for it:
 
 ```bash
-grep "\[warning\]" /path/to/storage/logs/web.log
+$ grep "\[warning\]" /path/to/storage/logs/web.log
 
 2019-06-11 05:21:58 [-][-][-][warning][application] Lorem ipsum dolor sit amet,
 ```
@@ -140,12 +138,12 @@ With Yii2, developers can implement their own logging functionality by implement
 Install Monolog and PsrTarget:
 
 ```bash
-composer require monolog/monolog samdark/yii2-psr-log-target
+$ composer require monolog/monolog samdark/yii2-psr-log-target
 ```
 
-Now we can configure our logging. Set up your sites `config/app.php` file:
+Now we can configure our logging. Set up your sites `app.php` file:
 
-```php
+```php:title=config/app.php
 <?php
 
 use Craft;
@@ -225,10 +223,8 @@ Next we tell Craft which log target to use and pass in some arguments:
 Your logs should be much cleaner now. For example, running `less` with the single line flag, we can have a brief overview of whats happening in our site.
 
 ```bash
-less -S +F /path/to/storage/logs/web.log
-```
+$ less -S /path/to/storage/logs/web.log
 
-```markup{4}
 [2019-06-11 07:27:06] my-site.DEBUG: Running action: craft\controllers\TemplatesController::actionRender() {"trace":[],"memory":313
 [2019-06-11 07:27:06] my-site.DEBUG: Rendering template:  {"trace":[],"memory":3364080,"category":"craft\\web\\View::renderTemplate
 [2019-06-11 07:27:48] my-site.DEBUG: Loading module: my-module {"trace":[],"memory":1896192,"category":"yii\\base\\Module::getModul
@@ -244,7 +240,7 @@ less -S +F /path/to/storage/logs/web.log
 And now if we grep for warnings again, we should get something useful out:
 
 ```bash
-grep "my-site.WARNING" /path/to/storage/logs/web.log
+$ grep "my-site.WARNING" /path/to/storage/logs/web.log
 
 [2019-06-11 07:27:06] my-site.WARNING: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
   labore et dolore magna aliqua {"trace":[],"memory":1972792,"category":"application","timestamp":1560263224.855803} []

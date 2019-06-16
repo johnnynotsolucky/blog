@@ -26,7 +26,10 @@ class BlogPostTemplate extends React.Component {
           style={{ marginBottom: '.25em' }}
         >{post.frontmatter.title}</h1>
         <Changelog changelog={post.frontmatter.changelog} />
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div
+          style={{ position: 'relative' }}
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
         <div
           style={{
             marginBottom: '1.5em',

@@ -31,6 +31,7 @@ li {
 }
 
 .gatsby-highlight {
+  margin-top: 1.56rem;
   margin-bottom: 1.56rem;
 }
 
@@ -49,5 +50,22 @@ li {
   margin-left: -1em;
   padding-right: 1em;
   padding-left: 0.7em;
+}
+
+.gatsby-code-title {
+  display: inline-block;
+  position: absolute;
+  transform: translateY(-100%);
+  padding: 0.2em 1em;
+  font-family: 'Fira Mono', 'Ubuntu Mono', monospace;
+  font-size: 0.6rem;
+  background-color: #dd4a68;
+  color: white;
+  z-index: 0;
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em;
+  font-weight: 600;
+  font-size: 0.6rem;
+  right: 0;
 }
 

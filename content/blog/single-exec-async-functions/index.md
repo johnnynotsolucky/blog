@@ -13,7 +13,7 @@ On occasion you might need to call a function to do the same work multiple times
 
 Here is an example function which does "work":
 
-```javascript
+```javascript:title=doWork.js
 const doWork = () =>
   new Promise(resolve => {
     setTimeout(() => {
@@ -38,7 +38,7 @@ That's cool. It logs a value out once its done, repeatedly. It's illustrative. N
 
 The good news is JavaScript treats functions as first-class citizens so we can wrap our worker function and return a new function. The new, wrapped, function would be the one we pass around to it's dependencies.
 
-```javascript
+```javascript:title=doOnce.js
 const doOnce = fn => {
   let promise
   return () => {
@@ -99,7 +99,7 @@ If your worker function returns different data or does different work based on t
 
 Here's an example:
 
-```javascript
+```javascript:title=doOnce.js
 const doOnce = fn => {
   let promise
   // highlight-start
@@ -124,7 +124,7 @@ const doOnce = fn => {
 
 I've added `...args` so that we can pass through any arguments we need to the worker function. And then I updated the worker function to print out the work its doing:
 
-```javascript
+```javascript:title=doWork.js
 const doWork = work =>
   new Promise(resolve => {
     setTimeout(() => {
