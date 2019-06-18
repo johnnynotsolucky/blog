@@ -7,7 +7,6 @@ import { rhythm } from "../utils/typography"
 
 import Changelog from '../components/Changelog'
 
-
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
@@ -24,7 +23,26 @@ class BlogPostTemplate extends React.Component {
         />
         <h1
           style={{ marginBottom: '.25em' }}
-        >{post.frontmatter.title}</h1>
+        >
+          {post.frontmatter.title}
+          {!post.frontmatter.published && (
+            <span
+              style={{
+                fontSize: '0.8rem',
+                transform: 'translateY(-50%)',
+                padding: '0.3em 0.8em',
+                fontFamily: '"Fira Mono", "Ubuntu Mono", monospace',
+                backgroundColor: '#dd4a68',
+                color: 'white',
+                borderRadius: '0.3em',
+                fontWeight: '600',
+                lineHeight: '0.8rem',
+                margin: '1rem',
+                display: 'inline-block',
+              }}
+            >Draft</span>
+          )}
+        </h1>
         <Changelog changelog={post.frontmatter.changelog} />
         <div
           style={{ position: 'relative' }}

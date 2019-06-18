@@ -19,6 +19,11 @@ class BlogIndex extends React.Component {
           title="All posts"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
+        {process.env.NODE_ENV === 'development' && (
+          <Link style={{ boxShadow: `none` }} to='/_drafts/'>
+            drafts
+          </Link>
+        )}
         {posts
           .filter(({ node }) => node.frontmatter.published)
           .map(({ node }) => {
