@@ -20,7 +20,7 @@ class BlogIndex extends React.Component {
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
         {posts
-          .filter(({ node }) => process.env.NODE_ENV === 'development' || node.frontmatter.published)
+          .filter(({ node }) => node.frontmatter.published)
           .map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (

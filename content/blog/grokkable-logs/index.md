@@ -9,7 +9,7 @@ changelog:
     message: "Published"
 ---
 
-- [Grokkable logs w/ Craft 3, pt. 2](/grokkable-logs-pt-2)
+<!-- - [Grokkable logs w/ Craft 3, pt. 2](/grokkable-logs-pt-2) -->
 
 ## The problem
 

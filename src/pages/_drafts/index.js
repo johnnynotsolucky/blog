@@ -7,10 +7,11 @@ import { rhythm } from "../../utils/typography"
 
 import Changelog from '../../components/Changelog'
 
-class BlogIndex extends React.Component {
+class DraftIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = `${data.site.siteMetadata.title} - work in progress`
+    console.log(JSON.stringify(data, null, 2))
     const posts = data.allMarkdownRemark.edges
 
     return (
@@ -19,7 +20,7 @@ class BlogIndex extends React.Component {
           title="work in progress"
         />
         {posts
-          .filter(({ node }) => process.env.NODE_ENV === 'development' || node.frontmatter.published)
+          .filter(({ node }) => !node.frontmatter.published)
           .map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
@@ -52,7 +53,7 @@ class BlogIndex extends React.Component {
   }
 }
 
-export default BlogIndex
+export default DraftIndex
 
 export const pageQuery = graphql`
   query {
