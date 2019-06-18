@@ -9,6 +9,8 @@ changelog:
     message: "Published"
 ---
 
+- [Grokkable logs w/ Craft 3, pt. 2](/grokkable-logs-pt-2)
+
 ## The problem
 
 By default, Yii2 logs are multiline and Craft doesn't add any extra configuration to change the log output beyond log file location. While this might be useful on a local dev environment when you have relatively few logs, it can quickly become tiresome to search. For example, let's take a look at a small sample of logs from a fresh Craft 3 installation:
