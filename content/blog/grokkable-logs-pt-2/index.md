@@ -13,7 +13,7 @@ changelog:
 
 In Part 1 we had a look at how we can set up a more versatile method for logging. Now let's add a JSON formatter, and see how this is beneficial.
 
-Formatting can be set on any handler which implements the [FormattableHandlerInterface](https://github.com/Seldaek/monolog/blob/4a33226f25009758cb237b4383589cef023b9494/src/Monolog/Handler/FormattableHandlerInterface.php). To change the formatting we need to call the handlers `setFormatter()` function with the formatter we need:
+Formatting can be set on any Monolog handler which implements the [FormattableHandlerInterface](https://github.com/Seldaek/monolog/blob/4a33226f25009758cb237b4383589cef023b9494/src/Monolog/Handler/FormattableHandlerInterface.php). To change the formatting we need to call the handlers `setFormatter()` function with the formatter we need:
 
 ```php:title=config/app.php
 <?php
@@ -45,17 +45,17 @@ After updating the app config, our logs will look like this:
 {"message":"Message C","context":{"timestamp":1560800484.405161},"level":200,"level_name":"INFO","channel":"website","datetime":{"date":"2019-06-17 12:41:24.423136","timezone_type":3,"timezone":"America/Los_Angeles"},"extra":[]}
 ```
 
-OK, well that's not actually better. We're back at spending mental effort to parse these visually and filtering with grep could require some gymnastics.
+OK, well that's not actually better. We're back at spending mental effort to parse these visually and filtering with grep might require some gymnastics.
 
 [jq](https://github.com/stedolan/jq) is a command-line JSON processor, and with its help we can do some really cool things with our logs.
 
-```bash
+```bash:title=Basic jq execution
 jq '.' /path/to/storage/logs/web.log
 ```
 
 In it's simplest form, jq takes a filter and a file to parse. The output would be something like this:
 
-```json
+```json:title=JSON formatted log messages
 {
   "message": "Message A",
   "context": {
@@ -103,9 +103,9 @@ In it's simplest form, jq takes a filter and a file to parse. The output would b
 }
 ```
 
-This is better; we can easily scan over messages and gain insights without too much effort. jq also uses a streaming parse, so we can pipe log messages in:
+This is better; we can easily scan over messages and gain insights without too much effort. jq also uses a streaming parser, so we can pipe log messages in:
 
-```bash
+```bash:title=Pipe log messages to jq
 tail -f -n0 /path/to/storage/logs/web.log | jq '.'
 ```
 
@@ -175,7 +175,7 @@ jq '{message}' storage/logs/web.log
 }
 ```
 
-We'd like to have that formatted as JSON:
+We'd like to have that formatted as JSON as well:
 
 ```bash:title=Parse JSON string in field
 jq '.message |= fromjson' storage/logs/web.log
@@ -195,13 +195,13 @@ jq '.message |= fromjson' storage/logs/web.log
 
 This falls over if there are non-JSON strings in the message field however:
 
-```markup
+```markup:title=Unable to parse regular string
 jq: error (at storage/logs/web.log:22): Invalid numeric literal at line 1, column 8 (while parsing 'Message B')
 ```
 
 To resolve that, we can add a bit of extra filter logic to print out JSON and non-JSON messages:
 
-```bash{4-6,15}
+```bash{4-6,15}:title=Format only JSON strings
 jq '.message |= (. as $message | try (. | fromjson) catch $message)' storage/logs/web.log
 
 {
@@ -226,6 +226,8 @@ jq '.message |= (. as $message | try (. | fromjson) catch $message)' storage/log
 }
 ```
 
-The [docs](https://stedolan.github.io/jq/manual/) are quite extensive.
+You'll probably find that you'll be repeating the same queries, I suggest adding them to your `bash_profile`/`.bashrc`/whatever file.
+
+You should check out the [docs](https://stedolan.github.io/jq/manual/), they are quite extensive. There is also a [cookbook](https://github.com/stedolan/jq/wiki/Cookbook).
 
 JSON logs are useful when you're using something like Elastic Stack to store your logs. For example you can use the [JSON filter](https://www.elastic.co/guide/en/logstash/current/plugins-filters-json.html) for LogStash to simplify your filters.
