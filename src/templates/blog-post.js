@@ -38,10 +38,10 @@ class BlogPostTemplate extends React.Component {
         >
           <a
             className='suggestion'
-            href={`https://github.com/johnnynotsolucky/blog/issues/new?title=[${trimmedSlug}]`}
+            href={`https://github.com/johnnynotsolucky/blog/issues/new?title=[comment:${trimmedSlug}]`}
           >
             <span style={{ marginLeft: '.25em' }}>
-              Make a suggestion
+              Leave a comment
             </span>
           </a>
         </div>
