@@ -10,13 +10,13 @@ import Changelog from '../../components/Changelog'
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
-    const siteTitle = `${data.site.siteMetadata.title} - drafts`
+    const siteTitle = `${data.site.siteMetadata.title} - work in progress`
     const posts = data.allMarkdownRemark.edges
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
-          title="Drafts"
+          title="work in progress"
         />
         {posts
           .filter(({ node }) => process.env.NODE_ENV === 'development' || node.frontmatter.published)
