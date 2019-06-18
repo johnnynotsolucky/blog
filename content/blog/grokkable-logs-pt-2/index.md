@@ -50,7 +50,7 @@ OK, well that's not actually better. We're back at spending mental effort to par
 [jq](https://github.com/stedolan/jq) is a command-line JSON processor, and with its help we can do some really cool things with our logs.
 
 ```bash
-$ jq '.' /path/to/storage/logs/web.log
+jq '.' /path/to/storage/logs/web.log
 ```
 
 In it's simplest form, jq takes a filter and a file to parse. The output would be something like this:
@@ -106,7 +106,7 @@ In it's simplest form, jq takes a filter and a file to parse. The output would b
 This is better; we can easily scan over messages and gain insights without too much effort. jq also uses a streaming parse, so we can pipe log messages in:
 
 ```bash
-$ tail -f -n0 /path/to/storage/logs/web.log | jq '.'
+tail -f -n0 /path/to/storage/logs/web.log | jq '.'
 ```
 
 Quick note on the `datetime` field:
@@ -116,7 +116,7 @@ Quick note on the `datetime` field:
 ## Examples
 
 ```bash:title=Filter by field
-$ jq 'select(.level == 400)' storage/logs/web.log
+jq 'select(.level == 400)' storage/logs/web.log
 
 {
   "message": "Error A",
@@ -136,7 +136,7 @@ $ jq 'select(.level == 400)' storage/logs/web.log
 ```
 
 ```bash:title=Remove fields; set root-level timestamp
-$ jq '
+jq '
   . + {timestamp: .context.timestamp} |
   del(.context) |
   del(.datetime) |
@@ -162,7 +162,7 @@ $ jq '
 Sorting is possible, but it requires the slurp (`-s`) flag which reads loads the entire log into an array and applies your filters to it.
 
 ```bash:title=Sort by field value
-$ jq 'sort_by(.context.timestamp)' storage/logs/web.log
+jq -s 'sort_by(.context.timestamp)' storage/logs/web.log
 ```
 
 Sometimes its useful to log data in your messages:
@@ -178,7 +178,7 @@ jq '{message}' storage/logs/web.log
 We'd like to have that formatted as JSON:
 
 ```bash:title=Parse JSON string in field
-$ jq '.message |= fromjson' storage/logs/web.log
+jq '.message |= fromjson' storage/logs/web.log
 
 {
   "message": {
@@ -202,7 +202,7 @@ jq: error (at storage/logs/web.log:22): Invalid numeric literal at line 1, colum
 To resolve that, we can add a bit of extra filter logic to print out JSON and non-JSON messages:
 
 ```bash{4-6,15}
-$ jq '.message |= (. as $message | try (. | fromjson) catch $message)' storage/logs/web.log
+jq '.message |= (. as $message | try (. | fromjson) catch $message)' storage/logs/web.log
 
 {
   "message": {
