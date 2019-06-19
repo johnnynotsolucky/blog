@@ -2,10 +2,10 @@
 title: Grokkable logs w/ Craft 3, pt. 2
 description: JSON formatting and parsing
 tags: ["tech", "development", "craft-cms", "yii2"]
-date: "2019-06-16T18:30:00.000+0200"
-published: false
+date: "2019-06-19T15:35:00.000+0200"
+published: true
 changelog:
-  - date: "2019-06-16T18:30:00.000+0200"
+  - date: "2019-06-19T15:35:00.000+0200"
     message: "Published"
 ---
 
