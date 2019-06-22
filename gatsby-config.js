@@ -28,6 +28,13 @@ module.exports = {
       options: {
         plugins: [
           'gatsby-remark-code-titles',
+          {
+            resolve:"@weknow/gatsby-remark-codepen",
+            options: {
+              theme: "dark",
+              height: 400
+            }
+          },
           'gatsby-remark-graphviz',
           {
             resolve: `gatsby-remark-images`,
