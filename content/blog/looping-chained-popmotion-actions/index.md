@@ -1,6 +1,6 @@
 ---
 title: Looping Chained Popmotion Actions
-description: Chain a sequence of actions and loop them indefinitely
+description: Chain a sequence of actions and loop them indefinitely.
 tags: ["tech", "development", "javascript"]
 date: "2019-06-22T22:51:00.000+0200"
 published: true

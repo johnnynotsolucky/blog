@@ -1,6 +1,6 @@
 ---
 title: Grokkable logs w/ Craft 3, pt. 2
-description: JSON formatting and parsing
+description: JSON formatting and parsing.
 tags: ["tech", "development", "craft-cms", "yii2"]
 date: "2019-06-19T15:35:00.000+0200"
 published: true
