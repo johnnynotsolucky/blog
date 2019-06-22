@@ -32,11 +32,9 @@ chain(
     complete()
   }),
   // highlight-end
-  delay(500),
 )
 ```
 
 The `action` function accepts an init function which is passed `update`, `complete` and `error` functions. Update will update the underlying observable with whatever data we provide it. `update` can be called as many times as you like, until `complete()` is called. At that point, the next item in the chain will start.
 
 In this example, we're setting `display: inline-block` when the animation starts, and `display: none` when the animation ends: https://codepen.io/tyronetudehope/pen/KjmpNd
-
