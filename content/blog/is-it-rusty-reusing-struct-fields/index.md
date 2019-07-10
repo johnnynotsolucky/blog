@@ -1,6 +1,6 @@
 ---
 title: Is it Rusty? Reusing struct fields
-description: Reusing structs by implementing traits
+description: Reusing structs and implementing traits for type-safety.
 tags: ["tech", "development", "rust"]
 date: "2019-07-10T16:49:00.000+0200"
 published: true
