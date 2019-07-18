@@ -7,6 +7,8 @@ published: true
 changelog:
   - date: "2019-07-10T16:49:00.000+0200"
     message: "Published"
+  - date: "2019-07-18T23:43:00.000+0200"
+    message: "Fix typo"
 ---
 
 

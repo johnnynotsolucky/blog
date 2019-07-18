@@ -1,7 +1,7 @@
 import React from "react"
 
 const Item = ({ change }) => {
-  return (<li style={{ marginBottom: 'calc(1.56rem / 4)' }}>
+  return (<li style={{ marginBottom: '0' }}>
     <span
       style = {{
         padding: '.1em .3em',
