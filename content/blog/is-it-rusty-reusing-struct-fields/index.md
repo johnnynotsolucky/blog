@@ -83,7 +83,7 @@ fn main() {
 }
 ```
 
-Cool. But we can add any time we like into `Pet::animal`, including a `Car`. To solve this you can implement a trait to restrict the types that can be set on `animal`.
+Cool. But we can add anything we like into `Pet::animal`, including a `Car`. To solve this you can implement a trait to restrict the types that can be set on `animal`.
 
 ```rust:title=Using a trait
 // highlight-start
