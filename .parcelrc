@@ -1,0 +1,7 @@
+{
+	"namers": [
+		"parcel-namer-pugconfig",
+		"@parcel/namer-default"
+	],
+	"extends": "@parcel/config-default"
+}
