@@ -1,5 +1,5 @@
 
-h1, h3 {
+h1, h2, h3 {
 	margin-left: 0;
 	margin-right: 0;
 	margin-top: 0;
@@ -19,13 +19,18 @@ h1 {
 	line-height: 1.1;
 }
 
+h2 {
+	font-weight: 200;
+	font-size: 1.25rem;
+}
+
 h3 {
 	font-weight: 100;
 	font-size: 1.4427rem;
 
 	a {
-	text-decoration: none;
-	box-shadow: none;
+		text-decoration: none;
+		box-shadow: none;
 	}
 }
 
