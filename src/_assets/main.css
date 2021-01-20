@@ -42,13 +42,13 @@ h3 {
 	font-size: 1.3rem;
 
 	a {
-		text-decoration: none;
+		/* text-decoration: none; */
 		box-shadow: none;
 	}
 }
 
 body, p {
-	font-size: 1rem;
+	font-size: 1.1rem;
 	font-family: 'Crimson Text', 'Georgia Times', 'Times New Roman', serif;
 }
 
@@ -93,6 +93,14 @@ footer {
 		font-family: 'Montserrat',sans-serif;
 		font-weight: 200;
 		margin-left: 0.25em;
+	}
+}
+
+div.actions {
+	a {
+		font-family: 'Montserrat',sans-serif;
+		display: inline-block;
+		margin: 1.25em 0;
 	}
 }
 
