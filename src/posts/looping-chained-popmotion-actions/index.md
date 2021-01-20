@@ -3,7 +3,7 @@ layout: blog.pug
 title: Looping Chained Popmotion Actions
 description: Chain a sequence of actions and loop them indefinitely.
 tags: ["post", "tech", "development", "javascript"]
-date: "2019-06-22T22:51:00.000+0200"
+date: "2019-06-22"
 ---
 
 [Popmotion](https://popmotion.io/) has a nice API for defining animations, and some actions include a property to loop the action:

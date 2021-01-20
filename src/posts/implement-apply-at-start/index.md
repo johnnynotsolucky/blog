@@ -3,7 +3,7 @@ layout: blog.pug
 title: Implement applyAtStart/applyAtEnd
 description: Popmotion Pose API has applyAtStart/applyAtEnd, implement these in Pure.
 tags: ["post", "tech", "development", "javascript"]
-date: "2019-06-23T23:15:00.000+0200"
+date: "2019-06-23"
 ---
 
 The [Popmotion Pose](https://popmotion.io/pose) API includes the `applyAtStart` and `applyAtEnd` [configuration options](https://popmotion.io/pose/api/config/#config-options-pose-config-applyatstart/applyatend). These config options are useful for setting properties on elements which cannot normally be animated such as the `display` CSS attribute. However, Popmotion Pure does not have similar config that I can find.

@@ -3,7 +3,7 @@ layout: blog.pug
 title: Correlating Craft 3 requests, pt. 2
 description: Forwarding request IDs and user support.
 tags: ["post", "tech", "development", "craft-cms", "yii2"]
-date: "2019-06-14T22:59:00.000+0200"
+date: "2019-06-14"
 ---
 
 - [Correlating Craft 3 requests, pt. 1](/posts/correlate-requests/)

@@ -3,7 +3,7 @@ layout: blog.pug
 title: Grokkable logs w/ Craft 3, pt. 1
 description: Log messages in a format that is easy to work with.
 tags: ["post", "tech", "development", "craft-cms", "yii2"]
-date: "2019-06-11T18:30:00.000+0200"
+date: "2019-06-11"
 ---
 
 - [Grokkable logs w/ Craft 3, pt. 2](/posts/grokkable-logs-pt-2)

@@ -3,7 +3,7 @@ layout: blog.pug
 title: Grokkable logs w/ Craft 3, pt. 2
 description: JSON formatting and parsing.
 tags: ["post", "tech", "development", "craft-cms", "yii2"]
-date: "2019-06-19T15:35:00.000+0200"
+date: "2019-06-19"
 ---
 
 - [Grokkable logs w/ Craft 3, pt. 1](/posts/grokkable-logs)

@@ -3,7 +3,7 @@ layout: blog.pug
 title: Naive guide to generating development certificates
 description: Generate your own certificates for development (the hard way).
 tags: ["post", "tech", "ops", "development"]
-date: "2019-06-10T22:27:00.000+0200"
+date: "2019-06-10"
 ---
 
 The easy way: [mkcert](https://github.com/FiloSottile/mkcert).

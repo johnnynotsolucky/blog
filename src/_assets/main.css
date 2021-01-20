@@ -1,3 +1,15 @@
+@import "./font.css";
+
+header {
+	margin-bottom: 1.56rem;
+	color: hsla(0,0%,0%,0.85);
+	font-family: 'Montserrat', sans-serif;
+	a {
+		font-weight: 300;
+		font-size: 1.56rem;
+		text-decoration: none !important;
+	}
+}
 
 h1, h2, h3 {
 	margin-left: 0;
@@ -25,6 +37,7 @@ h2 {
 }
 
 h3 {
+	margin: 0.25em 0;
 	font-weight: 100;
 	font-size: 1.3rem;
 
@@ -50,21 +63,6 @@ a:hover {
 	color: inherit;
 }
 
-a.suggestion {
-	transition: all 100ms linear;
-	font-family: Montserrat, sans-serif;
-}
-
-a.suggestion::before {
-	content: '';
-	display: inline-block;
-	vertical-align: middle;
-	background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22512%22%20height%3D%22512%22%20viewBox%3D%220%200%20512%20512%22%3E%3Cpath%20fill%3D%22rgb(51%2C68%2C85)%22%20d%3D%22M256%2032C132.3%2032%2032%20134.9%2032%20261.7c0%20101.5%2064.2%20187.5%20153.2%20217.9%201.4.3%202.6.4%203.8.4%208.3%200%2011.5-6.1%2011.5-11.4%200-5.5-.2-19.9-.3-39.1-8.4%201.9-15.9%202.7-22.6%202.7-43.1%200-52.9-33.5-52.9-33.5-10.2-26.5-24.9-33.6-24.9-33.6-19.5-13.7-.1-14.1%201.4-14.1h.1c22.5%202%2034.3%2023.8%2034.3%2023.8%2011.2%2019.6%2026.2%2025.1%2039.6%2025.1%2010.5%200%2020-3.4%2025.6-6%202-14.8%207.8-24.9%2014.2-30.7-49.7-5.8-102-25.5-102-113.5%200-25.1%208.7-45.6%2023-61.6-2.3-5.8-10-29.2%202.2-60.8%200%200%201.6-.5%205-.5%208.1%200%2026.4%203.1%2056.6%2024.1%2017.9-5.1%2037-7.6%2056.1-7.7%2019%20.1%2038.2%202.6%2056.1%207.7%2030.2-21%2048.5-24.1%2056.6-24.1%203.4%200%205%20.5%205%20.5%2012.2%2031.6%204.5%2055%202.2%2060.8%2014.3%2016.1%2023%2036.6%2023%2061.6%200%2088.2-52.4%20107.6-102.3%20113.3%208%207.1%2015.2%2021.1%2015.2%2042.5%200%2030.7-.3%2055.5-.3%2063%200%205.4%203.1%2011.5%2011.4%2011.5%201.2%200%202.6-.1%204-.4C415.9%20449.2%20480%20363.1%20480%20261.7%20480%20134.9%20379.7%2032%20256%2032z%22%2F%3E%3C%2Fsvg%3E") center center/24px 24px no-repeat;
-	height: 24px;
-	width: 24px;
-	margin-top: -.25em;
-}
-
 ul {
 	margin-left: 1.56rem;
 	margin-right: 0;
@@ -82,16 +80,26 @@ li {
 	font-size: 1.25rem;
 }
 
-div.datetime {
+span.datetime {
 	font-size: 0.9rem;
 	font-family: 'Montserrat',sans-serif;
 	font-weight: 200;
+	margin-left: 0.25em;
+}
+
+footer {
+	span, a {
+		font-size: 0.9rem;
+		font-family: 'Montserrat',sans-serif;
+		font-weight: 200;
+		margin-left: 0.25em;
+	}
 }
 
 :not(pre) > code {
 	font-family: 'Fira Mono', 'Ubuntu Mono', monospace;
 	font-weight: 100;
-	font-size: 0.9rem;
+	font-size: 0.8rem;
 	padding: .1em .3em;
 	border-radius: .3em;
 	color: #db4c69;
@@ -101,6 +109,6 @@ div.datetime {
 pre > code {
 	font-family: 'Fira Mono', 'Ubuntu Mono', monospace;
 	font-weight: 100;
-	font-size: 1rem;
+	font-size: 0.8rem;
 	line-height: 1.1rem;
 }

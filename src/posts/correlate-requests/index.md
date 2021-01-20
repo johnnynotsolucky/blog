@@ -3,7 +3,7 @@ layout: blog.pug
 title: Correlating Craft 3 requests, pt. 1
 description: Add a request ID to your logs for easy log grouping.
 tags: ["post", "tech", "development", "craft-cms", "yii2"]
-date: "2019-06-13T23:25:00.000+0200"
+date: "2019-06-13"
 ---
 
 - [Correlating Craft 3 requests, pt. 2](/posts/correlate-requests-pt-2/)

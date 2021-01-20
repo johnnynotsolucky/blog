@@ -3,7 +3,7 @@ layout: blog.pug
 title: DigitalOcean Dynamic Inventory
 description: Writing a bash script to generate dynamic Ansible inventory for DigitalOcean using jq.
 tags: ["post", "tech", "development", "ops"]
-date: "2019-07-18T23:34:00.000+0200"
+date: "2019-07-18"
 ---
 
 An Ansible [inventory plugin](https://docs.ansible.com/ansible/latest/plugins/inventory.html#inventory-plugins) for DigitalOcean does not yet exist. Fortunately, with some bash scripting and the help of [jq](https://stedolan.github.io/jq/), we can write a script which generates an inventory for us.

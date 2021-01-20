@@ -14,12 +14,12 @@ html(lang="")
 		script(src="/_assets/hljs/index.js")
 	body
 		header
-		h3: a(href="/")= site.title
+			a(href="/")= site.title
 		main
-		h1 #{title}
-		div.datetime= date
-		div !{content}
-		footer
-		span &copy;
-			a(href="https://twitter.com/johnnynotsolucky") johnnynotsolucky
+			h1 #{title}
+				span.datetime= date
+			div !{content}
+			footer
+				span &copy;
+					a(href="https://twitter.com/johnnynotsolucky") johnnynotsolucky
 

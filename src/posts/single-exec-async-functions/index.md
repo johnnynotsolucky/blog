@@ -3,7 +3,7 @@ layout: blog.pug
 title: Caching an asynchronous action for single execution in JavaScript
 description: Do the same work multiple times, simultaneously. But only do it once.
 tags: ["post", "tech", "development", "javascript"]
-date: "2019-06-12T16:42:00.000"
+date: "2019-06-12"
 ---
 
 On occasion you might need to call a function to do the same work multiple times and at the same time. For example, imagine you had some function which requests a list of data from a remote endpoint, and you had multiple dependencies on that function which would fetch that data once notified that it has changed.

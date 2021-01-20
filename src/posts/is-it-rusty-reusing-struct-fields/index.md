@@ -3,7 +3,7 @@ layout: blog.pug
 title: Is it Rusty? Reusing struct fields
 description: Reusing structs and implementing traits for type-safety.
 tags: ["post", "tech", "development", "rust"]
-date: "2019-07-10T16:49:00.000+0200"
+date: "2019-07-10"
 ---
 
 _**Is it Rusty?** These are posts chronicling my journey learning Rust. At this point I'm uncertain whether what I'm doing is actually the recommended way of doing things._
