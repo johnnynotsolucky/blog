@@ -6,11 +6,16 @@ date: "2021-01-29"
 ---
 
 ```bash
+# Create the .env file.
 cat .env << EOF
-ENV_VAR_A=Variable A
-ENV_VAR_B=Variable B
+# Comment about variable A
+ENV_VAR_A=Foo
+
+ENV_VAR_B=Bar
 EOF
 
+# Export the contents as environment variables excluding comments and empty
+# lines.
 export $( \
   cat .env \
   | awk '!/(^#)|(^$)/ { print }' \
@@ -18,7 +23,7 @@ export $( \
 )
 
 echo $ENV_VAR_A
-# Variable A
+# Foo
 echo $ENV_VAR_B
-# Variable B
+# Bar
 ```
