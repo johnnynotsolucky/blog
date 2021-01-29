@@ -34,14 +34,14 @@
     "url": "git+https://github.com/johnnynotsolucky/blog.git"
   },
   "scripts": {
-    "parcel-dev": "node bundler.js",
-    "parcel-build": "cross-env NODE_ENV=production node bundler.js",
-    "parcel-clean": "rimraf ./dist",
-    "11ty-dev": "eleventy --input=./src --watch",
-    "11ty-build": "cross-env NODE_ENV=production eleventy --input=./src",
-    "11ty-clean": "rimraf ./_site",
-    "clean": "run-p 11ty-clean parcel-clean",
-    "build": "run-s clean 11ty-build parcel-build",
+    "dev:parcel": "node bundler.js",
+    "build:parcel": "cross-env NODE_ENV=production node bundler.js",
+    "clean:parcel": "rimraf ./dist",
+    "dev:11ty": "eleventy --input=./src --watch",
+    "build:11ty": "cross-env NODE_ENV=production eleventy --input=./src",
+    "clean:11ty": "rimraf ./_site",
+    "clean": "run-p clean:11ty clean:parcel",
+    "build": "run-s clean build:11ty build:parcel",
     "format": "prettier --write src/**/*.{js,html,md}"
   }
 }
