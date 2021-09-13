@@ -1,0 +1,6 @@
+name = "notes"
+type = 'webpack'
+account_id = 'ab95dc56a7d2a937462286f5f4ec8e66'
+route = 'notes.tyrone.dev/*'
+zone_id = '58980cf31b23aa5d2d7945ee35ab856a'
+site = {bucket = "./dist", entry-point = "worker"}
