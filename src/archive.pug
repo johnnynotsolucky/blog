@@ -1,11 +1,10 @@
 extends /main.pug
 
 block content
-	h1 Archive
-	each post, index in collections.post.reverse()
-		if index >= 10
-			div
-				h3
-					a(href=post.url) #{post.data.title}
-					span.datetime= post.data.date
-
+  h1 Archive
+  ul.list
+    each post, index in collections.post.reverse()
+      if index >= 10
+        li
+          a(href=post.url) #{post.data.title}
+          span.datetime= post.data.date

@@ -1,25 +1,25 @@
 doctype html
 html(lang="")
-	head
-		meta(
-		charset="utf-8",
-		name="viewport",
-		content="width=device-width, initial-scale=1.0"
-		)
-		title #{title} - #{site.title}
-		block head
-		link(rel="stylesheet", href="/_assets/main.css")
-		link(rel="stylesheet", href="/_assets/hljs/theme.css")
-		script(src="/main.js")
-		script(src="/_assets/hljs/index.js")
-	body
-		header
-			a(href="/")= site.title
-		main
-			h1 #{title}
-				span.datetime= date
-			div !{content}
-			footer
-				span &copy;
-					a(href="https://twitter.com/johnnynotsolucky") Tyrone Tudehope
+  head
+    meta(
+    charset="utf-8",
+    name="viewport",
+    content="width=device-width, initial-scale=1.0"
+    )
+    title #{title} - #{site.title}
+    block head
+    link(rel="stylesheet", href="/_assets/main.css")
+    link(rel="stylesheet", href="/_assets/hljs/theme.css")
+    script(src="/main.js")
+    script(src="/_assets/hljs/index.js")
+  body
+    header
+      a(href="/")= site.title
+    main
+      h1 #{title}
+        span.datetime= date
+      div !{content}
+      footer
+        span &copy;
+          a(href="https://twitter.com/johnnynotsolucky") Tyrone Tudehope
 

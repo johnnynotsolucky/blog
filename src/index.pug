@@ -4,14 +4,25 @@ pagination:
   reverse: true
   size: 10
   resolve: values
+reading:
+  - title: "Rust for Rustaceans"
+    author: "Jon Gjengset"
+    notesUrl: "https://tyronetudehope.notion.site/Rust-for-Rustaceans-3d643aefb0dc4a7a9df70f75d25f51c1"
 ---
 
 extends /main.pug
 
 block content
-	each post in pagination.pages.length ? pagination.pages[0] : []
-		div
-			h3
-				a(href=post.url) #{post.data.title}
-				span.datetime= post.data.date
-	div.actions: a(href="/archive") Archive
+  h1 Writing
+  ul.list
+    each post in pagination.pages.length ? pagination.pages[0] : []
+      li
+        a(href=post.url) #{post.data.title}
+        span.datetime= post.data.date
+  div.actions: a(href="/archive") Archive
+
+  h1 Reading
+  ul.list
+    each entry in reading
+      li
+        a(href=entry.notesUrl) #{entry.title}
